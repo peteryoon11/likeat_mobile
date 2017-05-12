@@ -26,7 +26,7 @@ public class BottomNaviController {
 */
 	
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/")
 //	@RequestMapping(value = "/")
 	public ModelAndView likeatMain (String curPage) {
 		/*ModelAndView mav = new ModelAndView();
@@ -77,24 +77,19 @@ public class BottomNaviController {
 	@RequestMapping(value = "/main_search", method = RequestMethod.GET)
 	public String main_search(Locale locale, Model model) {
 		
-		Date date = new Date();
+		/*Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("serverTime", formattedDate );*/
 		
 		return "main_search";
 	}
 	@RequestMapping(value = "/main_likeatList", method = RequestMethod.GET)
 	public String main_likeatList(Locale locale, Model model) {
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+
 		
 		return "main_likeatList";
 	}
@@ -102,12 +97,7 @@ public class BottomNaviController {
 	@RequestMapping(value = "/main_lastest", method = RequestMethod.GET)
 	public String main_lastest(Locale locale, Model model) {
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+	
 		
 		return "main_lastest";
 	}
@@ -115,12 +105,6 @@ public class BottomNaviController {
 	@RequestMapping(value = "/main_mypage", method = RequestMethod.GET)
 	public String main_mypage(Locale locale, Model model) {
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
 		
 		return "main_mypage";
 	}

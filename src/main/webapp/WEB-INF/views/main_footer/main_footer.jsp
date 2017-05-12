@@ -20,7 +20,7 @@
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-				<li><a href="/likeat_verM/" data-icon="grid"
+				<li><a href="/likeat_mobile/" data-icon="grid"
 						data-role="button">모아보기</a></li>
 					<li><a href="#" data-icon="search"
 						data-role="button">탐색하기</a></li>

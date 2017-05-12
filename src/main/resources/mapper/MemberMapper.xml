@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.acorn.MemberMapper">
+
+<select id="useridCheck" parameterType="string" resultType="int">
+	select count(*) from member where userid = #{userid}
+</select>
+
+<select id="userInfo" parameterType="string" resultType="MemberDTO">
+	select * from member where userid = #{userid}
+</select>
+
+<select id="login" parameterType="hashmap" resultType="MemberDTO">
+	select * from member where userid = #{userid} and userpw = #{userpw}
+</select>
+
+<insert id="join" parameterType="MemberDTO">
+	insert into member values (#{username}, #{userid}, #{userpw}, 
+	#{email}, #{phone1}, #{phone2}, #{phone3})
+</insert>
+
+<update id="modify" parameterType="MemberDTO">
+       update member
+       set userpw = #{userpw}, email = #{email}, phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3}
+       where userid = #{userid}
+</update>
+
+</mapper>

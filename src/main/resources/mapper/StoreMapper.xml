@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.acorn.StoreMapper">
+
+<select id="selectPage" parameterType="hashmap" resultType="StoreDTO">
+	select * from store 
+	<choose>
+    	<when test="gangnam != null">
+			where addr2 like '강남%'
+    	</when>
+    	<when test="songpa != null">
+			where addr2 like '송파%'
+    	</when>
+    	<when test="yongsan != null">
+			where addr2 like '용산%'
+    	</when>
+ 		<otherwise>
+    	</otherwise>
+  </choose>
+  order by sid desc
+</select>
+
+<select id="totRecord" parameterType="hashmap"  resultType="int">
+	select count(*) from store
+	<choose>
+    	<when test="gangnam != null">
+			where addr2 like '강남%'
+    	</when>
+    	<when test="songpa != null">
+			where addr2 like '송파%'
+    	</when>
+    	<when test="yongsan != null">
+			where addr2 like '용산%'
+    	</when>
+ 		<otherwise>
+    	</otherwise>
+  </choose>
+</select>
+
+<select id="selectTop" parameterType="hashmap"  resultType="StoreDTO">
+	select * 
+	from (select a.*, nvl(a.rating / decode(a.ratingcnt, 0, null, a.ratingcnt), 0) ratingAvg from store a 
+	
+	<choose>
+    	<when test="gangnam != null">
+			where addr2 like '강남%'
+    	</when>
+    	<when test="songpa != null">
+			where addr2 like '송파%'
+    	</when>
+    	<when test="yongsan != null">
+			where addr2 like '용산%'
+    	</when>
+ 		<otherwise>
+    	</otherwise>
+  </choose>
+	order by ratingAvg desc)
+	<choose>
+    	<when test="gangnam != null || songpa != null || yongsan != null">
+			where ROWNUM = 1
+    	</when>
+ 		<otherwise>
+			<![CDATA[
+			where ROWNUM < 9
+		    ]]>
+    	</otherwise>
+  </choose>
+
+	
+</select>
+
+<select id="selectNew" parameterType="hashmap"  resultType="StoreDTO">
+	select *
+	from (select * from store 
+	
+	<choose>
+    	<when test="gangnam != null">
+			where addr2 like '강남%'
+    	</when>
+    	<when test="songpa != null">
+			where addr2 like '송파%'
+    	</when>
+    	<when test="yongsan != null">
+			where addr2 like '용산%'
+    	</when>
+ 		<otherwise>
+    	</otherwise>
+	</choose>
+	order by "createAt" desc)
+	<choose>
+    	<when test="gangnam != null || songpa != null || yongsan != null">
+			where ROWNUM = 1
+    	</when>
+ 		<otherwise>
+			<![CDATA[
+			where ROWNUM < 9
+		    ]]>
+    	</otherwise>
+  </choose>
+
+</select>
+
+<select id="searchKeyword" parameterType="String" resultType="StoreDTO">
+	select * from store
+	where (sname like '%'||#{searchKeyword}||'%' or menu like '%'||#{searchKeyword}||'%')
+</select>
+
+
+<select id="searchCategory" parameterType="String" resultType="StoreDTO">
+	select * from store
+	where (scategory like '%'||#{searchKeyword}||'%')
+</select>
+
+<select id="searchCnt" parameterType="String" resultType="int">
+	select count(*) from store
+	where (sname like '%'||#{searchKeyword}||'%' or menu like '%'||#{searchKeyword}||'%')
+</select>
+
+<select id="selectOne" resultType="StoreDTO" parameterType="string">
+	select * from store where sid=#{sid}
+</select>
+
+<select id="searchNeaSto" resultType="StoreDTO" parameterType="string">
+	select * from store where addr2 like '%'||#{searchKeyword}||'%'
+</select>
+
+</mapper>

@@ -8,11 +8,11 @@
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script
 	src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
- <link rel="stylesheet"
+<!-- <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
- 
+ -->
 <script type="text/javascript">
 	/* $(document).ready(function() {
 	
@@ -62,8 +62,23 @@
 </script>
 </head>
 <body>
+<!-- <div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>Expanded Collapsible Blocks</h1>
+  </div>
 
-	<div data-role="page" id="main_profile">
+  <div data-role="main" class="ui-content">
+    <div data-role="collapsible" data-collapsed="false">
+      <h1>Click medd - I'm collapsible!</h1>
+      <p>I'm now expanded by default.</p>
+    </div>
+  </div>
+
+  <div data-role="footer">
+    <h1>Insert Footer Text Here</h1>
+  </div>
+</div>  -->
+	<div data-role="page" id="main_likeatlist">
 		<div data-role="header" data-position="fixed">
 
 
@@ -74,11 +89,8 @@
 		</div>
 
 		<div data-role="main" class="ui-content">
-		<!-- 	<div data-role="collapsible">
-				<h1>Click me - I'm collapsible!</h1>
-				<p>I'm the expanded content.</p>
-			</div> 
-			  -->
+	main_likeatlist
+			
 			
 		</div>
 

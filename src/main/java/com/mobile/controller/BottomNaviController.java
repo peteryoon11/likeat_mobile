@@ -21,15 +21,15 @@ import com.mobile.service.StoreService;
 @Controller
 public class BottomNaviController {
 
-/*	@Autowired
+	@Autowired
 	private StoreService service;
-*/
+
 	
 	
 	@RequestMapping(value = "/")
 //	@RequestMapping(value = "/")
 	public ModelAndView likeatMain (String curPage) {
-		/*ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();
 		System.out.println("test!!!!!!!!!!!!!!");
 		if(curPage == null) {
 			curPage = "1";
@@ -70,13 +70,13 @@ public class BottomNaviController {
 		}
 		System.out.println(target+" <= 여기로 감!!");
 		mav.setViewName(target);
-		return mav;*/
-		return new ModelAndView("main");
+		return mav;
+	//	return new ModelAndView("main");
 	}//likeatMain()
 	
-	@RequestMapping(value = "/main_search", method = RequestMethod.GET)
+	@RequestMapping(value = "/main_search")
 	public String main_search(Locale locale, Model model) {
-		
+		 System.out.println("main_search");
 		/*Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
@@ -86,25 +86,25 @@ public class BottomNaviController {
 		
 		return "main_search";
 	}
-	@RequestMapping(value = "/main_likeatList", method = RequestMethod.GET)
+	@RequestMapping(value = "/main_likeat")
 	public String main_likeatList(Locale locale, Model model) {
-		
+	 System.out.println("main_likeat");
 
 		
-		return "main_likeatList";
+		return "main_likeat";
 	}
 
-	@RequestMapping(value = "/main_lastest", method = RequestMethod.GET)
+	@RequestMapping(value = "/main_lastest")
 	public String main_lastest(Locale locale, Model model) {
 		
-	
+		System.out.println("main_lastest");
 		
 		return "main_lastest";
 	}
 	
 	@RequestMapping(value = "/main_mypage", method = RequestMethod.GET)
 	public String main_mypage(Locale locale, Model model) {
-		
+		System.out.println("main_mypage");
 		
 		return "main_mypage";
 	}

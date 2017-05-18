@@ -23,7 +23,7 @@
 	</bean>
  <mvc:view-controller path="/aa" view-name="main"/>
 
-	 <context:component-scan base-package="com.mobile.controller" /> 
+	 <context:component-scan base-package="com.mobile.*" /> 
 	
  
 	

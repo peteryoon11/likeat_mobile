@@ -78,7 +78,7 @@
     <h1>Insert Footer Text Here</h1>
   </div>
 </div>  -->
-	<div data-role="page" id="main_likeat">
+	<div data-role="page" id="main_lastest">
 		<div data-role="header" data-position="fixed">
 
 
@@ -89,7 +89,8 @@
 		</div>
 
 		<div data-role="main" class="ui-content">
-		main_likeat
+		main_lastest page
+			
 			
 		</div>
 

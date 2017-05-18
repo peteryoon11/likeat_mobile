@@ -69,7 +69,7 @@
 </head>
 <body>
 
-	<div data-role="page" id="first_main">
+	<div data-role="page" id="error">
 		<div data-role="header" data-position="fixed">
 
 			

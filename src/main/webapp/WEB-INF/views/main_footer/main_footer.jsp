@@ -20,19 +20,19 @@
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-				<li><a href="/likeat_mobile/" data-icon="grid"
+				<li><a href="#main" data-icon="grid"
 						data-role="button" data-transition="flow">모아보기</a></li>
 						
-					<li><a href="main_search" data-icon="search"
+					<li><a href="#search_page" data-icon="search"
 						data-role="button" data-transition="slide">탐색하기</a></li>
 					
-					<li><a href="main_likeat" data-icon="heart"
-						data-role="button" data-transition="flow">LIKEat</a></li>
+			 		<li><a href="#likeat_page" data-icon="heart"
+						data-role="button" data-transition="flow">LIKEat</a></li> 
 					
-					<li><a href="main_lastest" data-icon="star"
-						data-role="button" data-transition="flow">최근 맛집 </a></li>
+				<!-- 	<li><a href="#latest_page" data-icon="star"
+						data-role="button" data-transition="flow">최근 맛집 </a></li> -->
 
-					<li><a href="main_mypage" data-icon="gear"
+					<li><a href="#mypage_page" data-icon="gear"
 						data-role="button" data-transition="flow">마이페이지</a></li>
 				</ul>
 			</div>

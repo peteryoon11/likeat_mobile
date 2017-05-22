@@ -20,17 +20,20 @@
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-				<li><a href="/likeat_verM/" data-icon="grid"
-						data-role="button">모아보기</a></li>
-					<li><a href="/likeat_verM/" data-icon="search"
-						data-role="button">탐색하기</a></li>
-					<li><a href="#main_save_list" data-icon="heart"
-						data-role="button">LIKEat</a></li>
-					<li><a href="#main_went_place" data-icon="star"
-						data-role="button">찜하기 </a></li>
+				<li><a href="/likeat_mobile/" data-icon="grid"
+						data-role="button" data-transition="flow" data-ajax="false">모아보기</a></li>
+						
+					<li><a href="main_search" data-icon="search"
+						data-role="button" data-transition="slide" data-ajax="false">탐색하기</a></li>
+					
+					<li><a href="main_likeat" data-icon="heart"
+						data-role="button" data-transition="flow" data-ajax="false">LIKEat</a></li>
+					
+					<li><a href="main_lastest" data-icon="star"
+						data-role="button" data-transition="flow" data-ajax="false">최근 맛집 </a></li>
 
-					<li><a href="main_profile" data-icon="gear"
-						data-role="button">마이페이지</a></li>
+					<li><a href="main_mypage" data-icon="gear"
+						data-role="button" data-transition="flow" data-ajax="false">마이페이지</a></li>
 				</ul>
 			</div>
 		</div>

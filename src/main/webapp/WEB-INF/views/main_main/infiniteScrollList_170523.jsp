@@ -51,9 +51,6 @@ try{
 	
 }
 %>
-<script type="text/javascript">
-console.log('infinit!! i m here');
-</script>
     <section class="no-padding neweatList" id="portfolio">
         <div class="container">
             <div class="row popup-gallery">

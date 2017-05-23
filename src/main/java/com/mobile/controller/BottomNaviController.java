@@ -30,7 +30,7 @@ public class BottomNaviController {
 //	@RequestMapping(value = "/")
 	public ModelAndView likeatMain (String curPage) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("test!!!!!!!!!!!!!!");
+		System.out.println("likeatMain test!!!!!!!!!!!!!!");
 		if(curPage == null) {
 			curPage = "1";
 		}		

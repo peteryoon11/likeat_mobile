@@ -22,7 +22,7 @@
  		<property name="suffix" value=".jsp"/>
 	</bean>
  <mvc:view-controller path="/aa" view-name="main"/>
-
+ <mvc:view-controller path="/infiniteScrollList" view-name="main_main/infiniteScrollList"/>
 	 <context:component-scan base-package="com.mobile.*" /> 
 	
  

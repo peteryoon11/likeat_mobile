@@ -17,7 +17,7 @@
 <script type="text/javascript">
 
 
-//var lat_map, long_map;
+
 (function geoFindMe() {
 	  var output = document.getElementById("out");
 
@@ -35,7 +35,7 @@
 	    
 	//    output.innerHTML = '<p>위도 : ' + latitude + '° <br>경도 : ' + longitude + '°</p>';
 
-	    
+	   // console.log();
 	    
 	    $.ajax({
 			type : "get",
@@ -52,22 +52,26 @@
 				console.log("success")
 			},
 			error : function(error) {
+				console.log('error main_header');
 				console.log(error);
 			}
 		});
 	    var img = new Image();
-	    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+	  //  img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
 	 //   output.appendChild(img);
 	  };
 
-	  function error() {
-	    output.innerHTML = "사용자의 위치를 찾을 수 없습니다.";
+	  function error(error) {
+	  //  output.innerHTML = '사용자의 위치를 찾을 수 없습니다.';
+	  console.log(error);
+	  console.log('navigator geolcation error!!! check main_header');
 	  };
 
-	//  output.innerHTML = "<p>Locating…</p>";
+	 // output.innerHTML = "<p>Locating…</p>";
 
 	  navigator.geolocation.getCurrentPosition(success, error);
+	  
 	  //https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyBoZh37iCcliE5MToxbnSTtnWSpjs_zBbw
 	
 
@@ -86,8 +90,7 @@
 
 		<div data-role="header" >
 		<div>나의 위치는 <span id="replylist_loc"></span></div>
-<!-- 	<p>현 위치</p>
-	<div id="out"></div >-->
+
 	
 		</div>
 

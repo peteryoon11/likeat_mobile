@@ -103,8 +103,22 @@
 				
 			
 	</div>
+<div data-role="page" id="detail_page">
+		<div data-role="header" data-position="fixed">
+		header
+		</div>
 
+		<div data-role="main" class="ui-content">
+			#detail_page
+		</div>
 		
-	
+		<div data-role="footer" class="ui-content" data-position="fixed">
+			<jsp:include page="main_footer/main_footer.jsp" />
+		</div>
+				
+			
+	</div>
+		
+
 </body>
 </html>

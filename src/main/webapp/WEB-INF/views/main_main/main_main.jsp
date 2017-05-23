@@ -76,9 +76,14 @@ $(document).ready(function (){
 				//console.log($('#detail_page').text() ,'<><>');
 				//console.log($('#detail_page').innerHTML ,'<><>');
 				console.log($('#detail_page').html() ,'<><>');
-			//	$('#detail_page .ui-content').remove();
-				console.log($('#detail_page .ui-content').append("") ,'<><>');
-				$('#detail_page .ui-content').appendTo("<table border='2'> <tr><td>table</td></tr></table>")
+			
+				//	console.log($('#detail_page .ui-content').append("") ,'<><>');
+			//	$('#detail_page .ui-content').html("test");
+		//	console.log($('#detail_page .ui-content').innerHTML);
+		//	$('#detail_page .ui-content').innerHTML="";
+	//	$('#detail_page .ui-content').text("");
+	$('#detailpageMain').html("<table border='2'> <tr><td>table</td></tr></table>"+detailPageCreate());	
+	//		$('#detail_page .ui-content').append("<table border='2'> <tr><td>table</td></tr></table>")
 				//console.log($('#detail_page').text() ,'<><>');
 				console.log(html);
 				
@@ -94,6 +99,11 @@ $(document).ready(function (){
 		});
 	
 });
+function detailPageCreate()
+{	
+	var test="test <br> test <br> test<h1>tttt</h1>"
+	return test;
+	}
 </script>
 </head>
 <body>

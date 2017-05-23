@@ -108,7 +108,7 @@
 		header
 		</div>
 
-		<div data-role="main" class="ui-content">
+		<div data-role="main" class="ui-content" id="detailpageMain">
 			#detail_page
 		</div>
 		

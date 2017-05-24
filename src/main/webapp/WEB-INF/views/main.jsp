@@ -103,7 +103,8 @@
 				
 			
 	</div>
-<div data-role="page" id="detail_page">
+	
+	<div data-role="page" id="detail_page">
 		<div data-role="header" data-position="fixed">
 		header
 		</div>

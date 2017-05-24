@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0
+}
+
+ul {
+	list-style: none;
+}
+
+.slider {
+	width: 600px;
+	margin: 100px auto;
+	height: 100px;
+	position: relative;
+	background: #CCC;
+	padding: 5px 0;
+}
+
+.slider .controller button {
+	position: absolute;
+	height: 110px;
+	width: 15px;
+	top: 0;
+	color: #FFF;
+	border: 0;
+	background: #000;
+	cursor: pointer;
+	z-index: 1
+}
+
+.slider .controller button.next {
+	right: -15px
+}
+
+.slider .controller button.prev {
+	left: -15px;
+}
+
+.slider ul {
+	width: 600px;
+	height: 100px;
+	border: 1px #F00 solid;
+	overflow: hidden;
+	position: relative
+}
+
+.slider li {
+	width: 150px;
+	height: 100px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.slider li a {
+	display: block;
+	border: 1px #EEE solid;
+	height: 100px;
+	margin: 0 5px
+}
+
+.slider li a img {
+	width: 100%;
+}

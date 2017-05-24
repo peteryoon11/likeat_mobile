@@ -49,7 +49,7 @@
 				console.log(html.results[0].address_components[1]);
 				console.log(html.results[0].address_components[1].long_name);
 				document.getElementById("replylist_loc").innerHTML=html.results[0].address_components[1].long_name;
-				console.log("success")
+				console.log("success");
 			},
 			error : function(error) {
 				console.log('error main_header');

@@ -23,97 +23,24 @@
 
 
 
+<!-- main_main 페이지에서 클릭시에 detail 페이지 그려주는 js 파일  -->
+<script src="resources/js/main_main.js"></script>
 
+<!-- custom slide js css  -->
+<script src="resources/js/jqueryslide.js"></script>
+<link href="resources/css/jqueryslide.css" rel="stylesheet">
 <script type="text/javascript">
 
-/* $.ajax({
-	type : "get",
-	url : 'https://maps.googleapis.com/maps/api/geocode/json?latlng='+latitude+','+longitude+'&key=AIzaSyBoZh37iCcliE5MToxbnSTtnWSpjs_zBbw',
-			success : function(html) {
-		$("#replylist_loc").innerHTML=html;
-		//(responseData);
-		console.log(html);
-		console.log(html.results);
-		console.log(html.results[0]);
-		console.log(html.results[0].address_components[1]);
-		console.log(html.results[0].address_components[1].long_name);
-		document.getElementById("replylist_loc").innerHTML=html.results[0].address_components[1].long_name;
-		console.log("success")
-	},
-	error : function(error) {
-		console.log(error);
-	}
-}); */
-var page = 1;
-$(window).scroll(function() {
-	console.log($(window).scrollTop(),'scrollTop');
-	console.log($(document).height(),'docum height');
-	console.log($(window).height(),'window height');
-	
-	console.log($(document).height()-$(window).height()-2);
-	console.log('--------------');
-	
-    if ($(window).scrollTop() > ($(document).height() - $(window).height() -1 )) {
-      console.log(++page);
-     // $("#enters").append("<h1>Page " + page + "</h1><BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~<BR/>So<BR/>MANY<BR/>BRS<BR/>YEAHHH~");
-  		
-    }
-});
-$(document).ready(function (){
-
-	$("a").click(function ()
-			{
-		console.log($(this).attr("id"));
-		
-		$.ajax({
-			type : "get",
-			data : {"sid":$(this).attr("id")},
-			url : 'detail',
-			dataType:'json',
-			success : function(html) {
-				//console.log($('#tttttt').text() ,'<><>');
-				
-				//console.log($('#detail_page').text() ,'<><>');
-				//console.log($('#detail_page').innerHTML ,'<><>');
-				console.log($('#detail_page').html() ,'<><>');
-			
-				//	console.log($('#detail_page .ui-content').append("") ,'<><>');
-			//	$('#detail_page .ui-content').html("test");
-		//	console.log($('#detail_page .ui-content').innerHTML);
-		//	$('#detail_page .ui-content').innerHTML="";
-	//	$('#detail_page .ui-content').text("");
-	$('#detailpageMain').html("<table border='2'> <tr><td>table</td></tr></table>"+detailPageCreate());	
-	//		$('#detail_page .ui-content').append("<table border='2'> <tr><td>table</td></tr></table>")
-				//console.log($('#detail_page').text() ,'<><>');
-				console.log(html);
-				
-				console.log("success")
-			},
-			error : function(error) {
-				console.log('error a click');
-				console.log(error);
-			}
-		});
-		
-		console.log('aaa finished');
-		});
-	
-});
-function detailPageCreate()
-{	
-	var test="test <br> test <br> test<h1>tttt</h1>"
-	return test;
-	}
 </script>
 </head>
 <body>
-<div id ="tttttt">
+<!-- <div id ="tttttt">
 <table>
 <tr>
 <td>test</td>
 </tr>
 </table>
-</div>
+</div> -->
 <div>TOPEat</div>
 	
 			<table border="2">

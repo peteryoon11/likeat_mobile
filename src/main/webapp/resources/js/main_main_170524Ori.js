@@ -149,23 +149,8 @@ function detailPageCreate(result)
 
 				</table>
 	`;
-	// 로그인  부분 추가 한 이후에 추가 할까? 
-	// 
-	var replyForm = `	
-				<div>
-					<div>
-						<input id="sid" type="hidden" value="${storeOne.sid}"> <input
-							id="rid" type="hidden" value="${storeOne.sid}-${recount+1}">
-						<textarea id="rcontent" rows="5" cols="40"></textarea>
-					
-					 	<select id="rappr">
-							<option value="5">5</option>
-							<option value="3">3</option>
-							<option value="1">1</option>
-						</select> userid <input id="userid" value="${loginfo.userid}">
-					</div>
-				</div>
-				<button id="requestRe">보내기</button>`;
+	
+	
 	
 	
 	var replyList=``;
@@ -177,50 +162,51 @@ function detailPageCreate(result)
 		console.log(result.sReDTOList[number]);
 		
 		replyList+=`		
-	 <div class="ui-grid-b">
-      <div class="ui-block-a">
+		<div class="row">
+			<div class="col-sm-2">
 				<div>
-					<img src="resources/detail/image/prosam.png" width="60px" height="60px">
-			    </div>
-			    <div>
-			    ${result.sReDTOList[number].userid}
-			    </div>
-	  </div>
-      <div class="ui-block-b">
+					<img src="resources/detail/image/prosam.png" width="100px" height="100px">
+				</div>
+				<div>${result.sReDTOList[number].userid } ${result.sReDTOList[number].rwrda }</div>
+				<span class="glyphicon glyphicon-pencil"></span> 
+				<input
+					type="hidden" value="리뷰"> :30
+				<div></div>
+			</div>
+			<div class="col-sm-7">
 				<div>날짜 ${result.sReDTOList[number].rwrda }</div>
-				내용 <br><input value="${result.sReDTOList[number].rcontent}"  readonly="readonly"/>
-				<div class="ui-grid-a">
-					<div class="ui-block-a">
-					<img src="${result.sReDTOList[number].rwrda.img2}" width="100px" height="100px">
+				내용 <br>${result.sReDTOList[number].rcontent}
+				<div class="row">
+					<div>
+						<img class="img-responsive col-sm-6" src="${result.sReDTOList[number].rwrda.img1}">
 					</div>
-					<div class="ui-block-b">
-					<img src="${result.sReDTOList[number].rwrda.img2}" width="100px" height="100px">
+
+					<div>
+
+						<img class="img-responsive col-sm-6" src="${result.sReDTOList[number].rwrda.img2}">
 					</div>
 				</div>
-	  </div>
-      <div class="ui-block-c">
-		<!-- 평점 이미지가 들어가는 부분 --> 
-    
+			</div>
 `;
 
 		
 		if(result.sReDTOList[number].rappr=="5")
 		{
-			replyList+=`<img  src="resources/detail/image/good.png" width="50px"
+			replyList+=`<img class=" col-sm-6" src="resources/detail/image/good.png" width="100px"
 				height="100px">
 
 			<br>`;
 		}
 		else if(result.sReDTOList[number].rappr=="3")
 		{
-			replyList+=`<img  src="resources/detail/image/low.png" width="50px"
+			replyList+=`<img class=" col-sm-6" src="resources/detail/image/low.png" width="100px"
 				height="100px">
 
 			<br>`;
 		}
 		else if(result.sReDTOList[number].rappr=="1")
 		{
-			replyList+=`<img src="resources/detail/image/avr.png" width="50px"
+			replyList+=`<img class=" col-sm-6" src="resources/detail/image/avr.png" width="100px"
 				height="100px">
 
 			<br>`;
@@ -232,8 +218,7 @@ function detailPageCreate(result)
 		
 		
 		console.log("나오나?");
-		replyList+=`  </div>
-						</div>`;
+		replyList+=`</div >`;
 	}
 	
 		

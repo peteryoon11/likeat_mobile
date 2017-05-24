@@ -39,6 +39,9 @@ public class MainPageAJAXController {
 		System.out.println(sid.length());
 		StoreDTO sdto = st_service.selectOne(tempsid);
 		List<SreplyDTO> rdtolist= sr_service.selectSID(tempsid);
+		
+		// 
+		
 		HashMap<String, Object> hlist= new HashMap<>();
 		
 		hlist.put("storeDTO", sdto);

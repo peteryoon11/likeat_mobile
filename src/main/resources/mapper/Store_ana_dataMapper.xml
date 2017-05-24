@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.acorn.Store_ana_dataMapper">
+
+
+
+<update id="modify" parameterType="MemberDTO">
+       update member
+       set userpw = #{userpw}, email = #{email}, phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3}
+       where userid = #{userid}
+</update>
+
+</mapper>

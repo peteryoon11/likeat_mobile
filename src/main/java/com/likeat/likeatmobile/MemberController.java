@@ -1,4 +1,4 @@
-package com.mobile.controller;
+package com.likeat.likeatmobile;
 
 import java.util.HashMap;
 

@@ -1,4 +1,7 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +84,14 @@
 })();
 
 
-
+(function()
+		{
+	console.log("fdfdf");
+//	console.log(${mdtoInfo}); // session 단에서 잘 작동하는지 확인 
+	//loginInfo
+//	console.log(${loginInfo});
+		}
+)();
 
 </script>
 </head>
@@ -91,8 +101,35 @@
 		<div data-role="header" >
 		<div>나의 위치는 <span id="replylist_loc"></span></div>
 
-	
-		</div>
+		<!-- <h1>Welcome To My Homepage</h1> -->
+ 	 <%--  <c:if test="${mdtoInfo!=null}"> --%>
+ 	<!--  <div id ="main_header_login_state">
+ 	  <div data-role="navbar" id ="">
+		   	   <ul>
+		        <li><a href="#loginForm">Sign In</a></li>
+		        <li><a href="#">Register</a></li>
+		      </ul>
+	   	  </div>
+ 	 </div> -->
+ 	  <c:if test="${sessionScope.loginInfo!=null}"> 
+	 	 <div data-role="navbar" id ="">
+	   	  	<ul>     		
+	       		 <li><a href="#">${mdtoInfo.username} 님 안녕하세요 </a></li>
+	        	 <li><a href="#">설정</a></li>
+	         	 <li><a href="#main" id="main_logout">Logout</a></li>
+	      	</ul>
+	   	 </div>
+ 	   </c:if>
+ 	   
+ 	   <c:if test="${sessionScope.loginInfo==null }">
+	 	   <div data-role="navbar" id ="">
+		   	   <ul>
+		        <li><a href="#loginForm">Sign In</a></li>
+		        <li><a href="#">Register</a></li>
+		      </ul>
+	   	  </div>
+      </c:if> 
+	</div>
 
 
 

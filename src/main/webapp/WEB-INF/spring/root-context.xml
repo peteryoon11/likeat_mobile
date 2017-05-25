@@ -25,6 +25,8 @@
 				<value>com.mobile.entity.StoreDTO</value>
 				<value>com.mobile.entity.MemberDTO</value>
 				<value>com.mobile.entity.SreplyDTO</value>
+				<value>com.mobile.entity.Store_ana_dataDTO</value>
+				
 			</list>
 		</property>
 	</bean>

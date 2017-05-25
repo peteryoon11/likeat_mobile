@@ -17,7 +17,9 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 
-
+<!-- <div data-role="page" data-dialog="true" id="loginForm"
+ 에서 클릭시에 로그인 이미지 확인하고  페이지 그려주는 js 파일  -->
+<script src="resources/js/main_member_manag.js"></script>
 
 </head>
 <body>	
@@ -119,6 +121,32 @@
 				
 			
 	</div>
+	
+	<div data-role="page" data-dialog="true" id="loginForm">
+  <div data-role="header">
+    <h1>You Should Login! :)</h1>
+  </div>
+
+  <div data-role="main" class="ui-content" >
+<!--    <form>
+  	 ID<input name="userid" required title="tttt">
+   	PW<input name="passwd" required title="tttt" pattern="[0-9][A-Z]{3}">
+   	<a href="#main" id="LoginInfoSend">전송</a>
+   
+   </form> -->
+     <label for="fname" style=' color=orange; '>함께해요 LIKEat</label>
+ 	 ID<input id ="userid" name="userid" required title="tttt">
+   	PW<input type="password" required id="passwd" name="passwd" required pattern="[0-9][A-Z]{3}">
+    
+     <!--  <input type="text" name="fname" id="fname"> -->
+      <a href="#main" id="LoginInfoSend"><input type="submit" value="로그인" data-icon="check" data-iconpos="right" data-inline="true">
+  </a>
+  </div>
+ 
+  <div data-role="footer">
+    <a href="#">아직 회원이 아니세요?</a>
+  </div>
+</div> 
 		
 
 </body>

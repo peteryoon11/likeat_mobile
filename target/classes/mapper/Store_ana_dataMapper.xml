@@ -4,10 +4,11 @@
 
 
 
-<update id="modify" parameterType="MemberDTO">
-       update member
-       set userpw = #{userpw}, email = #{email}, phone1 = #{phone1}, phone2 = #{phone2}, phone3 = #{phone3}
-       where userid = #{userid}
+<update id="inctVicou" parameterType="string" >
+        update STORE_ANA_DATA set vi_COU= vi_COU+1 where sid =#{sid}
 </update>
+<select id="select_ana_data" parameterType="string" resultType="Store_ana_dataDTO">
+	select * from store_ana_data where sid = #{sid}
+</select>
 
 </mapper>

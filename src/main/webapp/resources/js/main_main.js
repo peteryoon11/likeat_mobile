@@ -33,8 +33,8 @@ $(window).scroll(function() {
 });
 $(document).ready(function (){
 
-	$("a").click(function ()
-			{
+	$("a[href='#detail_page']").click(function ()
+			{// detail page href 있는 객체만 걸러서 실행 시킴 
 		console.log($(this).attr("id"));
 		
 		$.ajax({
@@ -47,7 +47,7 @@ $(document).ready(function (){
 				
 				//console.log($('#detail_page').text() ,'<><>');
 				//console.log($('#detail_page').innerHTML ,'<><>');
-				console.log($('#detail_page').html() ,'<><>'); // 초기화 ? 아니
+			//	console.log($('#detail_page').html() ,'<><>'); // 초기화 ? 아니
 				
 				//	console.log($('#detail_page .ui-content').append("") ,'<><>');
 			//	$('#detail_page .ui-content').html("test");
@@ -57,7 +57,7 @@ $(document).ready(function (){
 	$('#detailpageMain').html(detailPageCreate(result));	
 	//		$('#detail_page .ui-content').append("<table border='2'> <tr><td>table</td></tr></table>")
 				//console.log($('#detail_page').text() ,'<><>');
-				console.log(result);
+			//	console.log(result);
 			//	console.log(something1);
 			//	console.log(something2);
 				
@@ -65,7 +65,7 @@ $(document).ready(function (){
 				console.log("success")
 			},
 			error : function(error) {
-				console.log('error a click');
+				console.log('error a click main_main.js');
 				console.log(error);
 			}
 		});
@@ -91,7 +91,7 @@ function detailPageCreate(result)
 	let b=`20`;
 	console.log(`a는 ${a} b는 ${b}`);
 	
-	
+	console.log(result);
 /*	<div class="slider">
 	<div class="controller">
 		<button class="next">&gt;</button>
@@ -118,6 +118,28 @@ function detailPageCreate(result)
 	var inn_imageSrc1='<img src="'+result.storeDTO.imgSrc1+'" style="max-width: 100%; max-height: 100%;"/>';
 	var inn_imageSrc2='<img src="'+result.storeDTO.imgSrc2+'" style="max-width: 100%; max-height: 100%;"/>';
 	var inn_imageSrc3='<img src="'+result.storeDTO.imgSrc3+'" style="max-width: 100%; max-height: 100%;"/>';
+	
+	
+	
+	
+	var slideSource =`
+		<table border ="2">
+			<tr>
+				<td colspan="2">
+				${inn_imageSrc1}
+				</td>
+			</tr>
+			<tr>
+				<td>
+				${inn_imageSrc2}
+				</td>
+				<td>
+				${inn_imageSrc3}
+				</td>
+			</tr>
+		</table>
+		
+			`;
 	
 	var inn_infoTable=`
 	<table  style="max-width: 100%;">
@@ -151,11 +173,33 @@ function detailPageCreate(result)
 	`;
 	// 로그인  부분 추가 한 이후에 추가 할까? 
 	// 
-	var replyForm = `	
+	var store_ana_data=`
+	<table border="2"  width="100%">
+		<tr>
+			<td>view 수 
+			</td>
+			<td>${result.sad_dto.vi_cou}
+			</td>		
+		</tr>
+		<tr>
+			<td>review 수 
+			</td>
+			<td>${result.sad_dto.re_cou}
+			</td>		
+		</tr>
+		<tr>
+			<td>like 수 
+			</td>
+			<td>${result.sad_dto.li_cou}
+			</td>		
+		</tr>
+	</table>
+	`;
+/*	var replyForm = `	
 				<div>
 					<div>
-						<input id="sid" type="hidden" value="${storeOne.sid}"> <input
-							id="rid" type="hidden" value="${storeOne.sid}-${recount+1}">
+						<input id="sid" type="hidden" value="${result.storeDTO.sid}"> <input
+							id="rid" type="hidden" value="${storeOne.rid}-${recount+1}">
 						<textarea id="rcontent" rows="5" cols="40"></textarea>
 					
 					 	<select id="rappr">
@@ -165,7 +209,7 @@ function detailPageCreate(result)
 						</select> userid <input id="userid" value="${loginfo.userid}">
 					</div>
 				</div>
-				<button id="requestRe">보내기</button>`;
+				<button id="requestRe">보내기</button>`;*/
 	
 	
 	var replyList=``;
@@ -292,24 +336,7 @@ function detailPageCreate(result)
 				
 	`;*/
 	
-	var slideSource =`
-	<table border ="2">
-		<tr>
-			<td colspan="2">
-			${inn_imageSrc1}
-			</td>
-		</tr>
-		<tr>
-			<td>
-			${inn_imageSrc2}
-			</td>
-			<td>
-			${inn_imageSrc3}
-			</td>
-		</tr>
-	</table>
-	
-		`;
+
 	
 	
 	
@@ -358,7 +385,9 @@ function detailPageCreate(result)
 </div>*/
 	
 	
-	var detailPageSource=slideSource+inn_infoTable 
+	var detailPageSource=slideSource
+	+store_ana_data
+	+inn_infoTable 
 	+replyList
 	;
 	console.log(result);

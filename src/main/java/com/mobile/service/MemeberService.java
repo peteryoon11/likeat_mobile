@@ -49,7 +49,7 @@ public class MemeberService {
 	public MemberDTO login(HashMap<String, String> loginfo) throws LikeatException {
 		
 		MemberDTO dto = null;
-		
+		System.out.println("logininfo " +loginfo);
 		try {
 //			dto = session.selectOne(namespace + "login", loginfo);
 			dto = dao.login(loginfo);	

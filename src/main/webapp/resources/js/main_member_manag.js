@@ -26,7 +26,7 @@ $(document).ready(function (){
 					
 					$('#main_header_login_state').html(login_state_PageCreate(result));
 //					window.location.reload(true); // 강제로 화면 재전환
-					history.go(0);
+				//	history.go(0);
 				console.log("success main_login.js");
 			},
 			error : function(error) {
@@ -52,13 +52,23 @@ $(document).ready(function (){
 		var login_state=`
 	
 		<div data-role="navbar" class="ui-navbar" role="navigation">
-	   	  	<ul class="ui-grid-b">     		
-	       		 <li class="ui-block-a"><a href="#" class="ui-link ui-btn"> ${result.username}  님 안녕하세요 </a></li>
-	        	 <li class="ui-block-b"><a href="#" class="ui-link ui-btn">설정</a></li>
-	         	 <li class="ui-block-c"><a href="#main" id="main_logout" class="ui-link ui-btn">Logout</a></li>
-	      	</ul>
-	   	 </div>
+   	  	<ul class="ui-grid-b">     		
+       		 <li class="ui-block-a"><a href="#" class="ui-link ui-btn">${result.username}  님 안녕하세요 </a></li>
+        	 <li class="ui-block-b"><a href="#" class="ui-link ui-btn">설정ff</a></li>
+         	 <li class="ui-block-c"><a href="#main" id="main_logout" class="ui-link ui-btn">Logout</a></li>
+      	</ul>
+   	 </div>
 		`;
+		
+		
+		/*${result.username} 
+		 * <div data-role="navbar" class="ui-navbar" role="navigation">
+   	  	<ul class="ui-grid-b">     		
+       		 <li class="ui-block-a"><a href="#" class="ui-link ui-btn">프로맛집러 님 안녕하세요 </a></li>
+        	 <li class="ui-block-b"><a href="#" class="ui-link ui-btn">설정</a></li>
+         	 <li class="ui-block-c"><a href="#main" id="main_logout" class="ui-link ui-btn">Logout</a></li>
+      	</ul>
+   	 </div>*/
 		var login_state_PageSource=login_state;
 		
 		return login_state_PageSource;
@@ -66,7 +76,7 @@ $(document).ready(function (){
 	}
 
 	
-	$("a[id='main_logout']").click(function (){
+	$("body").on('click',"a[id='main_logout']",function (){
 		console.log("main_logout !! 받음");
 		//console.log($("#userid").val(),$("#passwd").val());
 		
@@ -87,7 +97,7 @@ $(document).ready(function (){
 					console.log('--------------');	
 					$('#main_header_login_state').html(logout_state_PageCreate(result));
 			//		window.location.reload(true); // 강제로 화면 재전환
-					history.go(0);
+				//	history.go(0);
 				console.log("success main_logout.js");
 				
 			},

@@ -111,11 +111,13 @@
 		      </ul>
 	   	  </div>
  	 </div> -->
+ 	 <div id="main_header_login_state">
+ 	
  	  <c:if test="${sessionScope.loginInfo!=null}"> 
 	 	 <div data-role="navbar" id ="">
 	   	  	<ul>     		
 	       		 <li><a href="#">${mdtoInfo.username} 님 안녕하세요 </a></li>
-	        	 <li><a href="#">설정</a></li>
+	        	 <li><a href="#">설정dd</a></li>
 	         	 <li><a href="#main" id="main_logout">Logout</a></li>
 	      	</ul>
 	   	 </div>
@@ -129,6 +131,7 @@
 		      </ul>
 	   	  </div>
       </c:if> 
+       </div>
 	</div>
 
 

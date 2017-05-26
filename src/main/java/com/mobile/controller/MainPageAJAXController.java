@@ -50,10 +50,12 @@ public class MainPageAJAXController {
 	}
 	
 	@RequestMapping(value = "/logout")
-	public void logout(HttpSession session)
+	@ResponseBody
+	public String logout(HttpSession session)
 	{
 		session.invalidate();	
 		//return null;
+		return "로그아웃 잘됨";
 	}
 	
 	@RequestMapping(value = "/login")

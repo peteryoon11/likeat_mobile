@@ -25,7 +25,9 @@ $(document).ready(function (){
 					//$('#detailpageMain').html(detailPageCreate(result));
 					
 					$('#main_header_login_state').html(login_state_PageCreate(result));
-				console.log("success main_login.js")
+//					window.location.reload(true); // 강제로 화면 재전환
+					history.go(0);
+				console.log("success main_login.js");
 			},
 			error : function(error) {
 				console.log('error a click LoginInfoSend main_member_manag.js');
@@ -36,7 +38,9 @@ $(document).ready(function (){
 		
 		
 	});	
-	
+/*	<script type="text/javascript">
+	window.location.reload(true);
+	</script>*/
 	
 	function login_state_PageCreate(result)
 	{
@@ -46,6 +50,7 @@ $(document).ready(function (){
 		console.log("-----------------------");
 		//var login_state="test tt"; // ${result.username} 
 		var login_state=`
+	
 		<div data-role="navbar" class="ui-navbar" role="navigation">
 	   	  	<ul class="ui-grid-b">     		
 	       		 <li class="ui-block-a"><a href="#" class="ui-link ui-btn"> ${result.username}  님 안녕하세요 </a></li>
@@ -75,13 +80,16 @@ $(document).ready(function (){
 				}
 			,*/
 			url : 'logout',
-			dataType:'json',
+			dataType:'text',
 			success : function(result) {
 			console.log('--------------');
 					console.log(result);
 					console.log('--------------');	
 					$('#main_header_login_state').html(logout_state_PageCreate(result));
-				console.log("success main_logout.js")
+			//		window.location.reload(true); // 강제로 화면 재전환
+					history.go(0);
+				console.log("success main_logout.js");
+				
 			},
 			error : function(error) {
 				console.log('error a click main_logout main_member_manag.js');
@@ -101,6 +109,7 @@ $(document).ready(function (){
 		console.log("-----------------------");
 		//var login_state="test tt"; // ${result.username} 
 		var logout_state=`
+		
 			<div data-role="navbar" class="ui-navbar" role="navigation">
 				<ul class="ui-grid-a">
 					<li class="ui-block-a"><a href="#loginForm" class="ui-link ui-btn">Sign In</a></li>

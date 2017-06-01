@@ -53,18 +53,20 @@ public class SreplyService {
 		return list;
 	}
 
-	public void insertReply(SreplyDTO dto) {
+	public int insertReply(SreplyDTO dto) {
 
 		List<SreplyDTO> list = null;
 		int rcount = 0;
 		try {
 //			session.insert(namespace + "insertReply", dto);
-			dao.insertReply(dto);
+			rcount=dao.insertReply(dto);
 			
 //			session.commit();
 		} finally {
 //			session.close();
+		
 		}
+		return rcount;
 	}
 
 }

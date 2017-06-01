@@ -127,6 +127,7 @@ $(document).ready(function (){
 				</ul>
 			</div>
 		`;
+	//	console.log(${mdtoInfo});
 		var logout_state_PageSource=logout_state;
 		
 		return logout_state_PageSource;

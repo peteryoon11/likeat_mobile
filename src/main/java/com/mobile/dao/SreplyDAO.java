@@ -27,7 +27,8 @@ public class SreplyDAO {
 		return template.selectList(namespace + "searchNeaSto", addr2);
 	}
 	
-	public void insertReply(SreplyDTO dto) {
-		template.insert(namespace + "insertReply", dto);
+	public int insertReply(SreplyDTO dto) {
+		int result =template.insert(namespace + "insertReply", dto);
+		return result;
 	}
 }

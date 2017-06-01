@@ -73,6 +73,47 @@ $(document).ready(function (){
 		console.log('aaa finished');
 		});
 	
+	
+	//<button id="requestRe"
+	// detail 페이지에서 댓글 다는 메소드 
+	$("body").on('click',"button[id='requestRe']",function (){
+		console.log("detail  !! 받음");
+		//console.log($("#userid").val(),$("#passwd").val());
+		
+		// logout 관련 js 
+		$.ajax({
+			type : "get",
+			data : {
+				"userid":$("#Ruserid").val(),
+				"sid":$("#sid").val()
+				,"rid":$("#rid").val()
+				,"rcontent":$("#rcontent").val()
+				,"rappr":$("#rappr").val()
+				
+				}
+			,
+			url : 'appendReply',
+			dataType:'text',
+			success : function(result) {
+			console.log('--------------');
+					console.log(result);
+					console.log('--------------');	
+					$('#main_header_login_state').html(logout_state_PageCreate(result));
+			//		window.location.reload(true); // 강제로 화면 재전환
+				//	history.go(0);
+				console.log("success main_logout.js");
+				
+			},
+			error : function(error) {
+				console.log('error a click main_logout main_member_manag.js');
+				console.log(error);
+			}
+		});
+		
+		
+		
+	});	
+	
 });
 
 function detailPageCreate(result)
@@ -89,7 +130,7 @@ function detailPageCreate(result)
 	
 	let a='홍길동';
 	let b=`20`;
-	console.log(`a는 ${a} b는 ${b}`);
+	console.log(`a는 ${a} b는 ${b} test`);
 	
 	console.log(result);
 /*	<div class="slider">
@@ -195,21 +236,24 @@ function detailPageCreate(result)
 		</tr>
 	</table>
 	`;
-/*	var replyForm = `	
+	var replyForm =
+		//`<br><br><button id="requestRe">보내기</button><br><br>`;
+		 `	
 				<div>
 					<div>
-						<input id="sid" type="hidden" value="${result.storeDTO.sid}"> <input
-							id="rid" type="hidden" value="${storeOne.rid}-${recount+1}">
+						<input id="sid" type="hidden" value="${result.storeDTO.sid}"> 
+						<input
+							id="rid" type="hidden" value="${result.storeDTO.sid}-${result.sad_dto.re_cou+1}">
 						<textarea id="rcontent" rows="5" cols="40"></textarea>
 					
 					 	<select id="rappr">
 							<option value="5">5</option>
 							<option value="3">3</option>
 							<option value="1">1</option>
-						</select> userid <input id="userid" value="${loginfo.userid}">
+						</select> userid <input id="userid" value="${result.sessionLogin.username}" readonly>
 					</div>
 				</div>
-				<button id="requestRe">보내기</button>`;*/
+				<button id="requestRe">보내기</button>`;
 	
 	
 	var replyList=``;
@@ -388,8 +432,12 @@ function detailPageCreate(result)
 	var detailPageSource=slideSource
 	+store_ana_data
 	+inn_infoTable 
+	+replyForm
 	+replyList
 	;
+	
+	
+	
 	console.log(result);
 	console.log(result.storeDTO);
 	console.log(result.sReDTOList);

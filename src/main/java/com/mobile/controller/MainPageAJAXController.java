@@ -58,6 +58,26 @@ public class MainPageAJAXController {
 		return "로그아웃 잘됨";
 	}
 	
+	@RequestMapping(value = "/appendReply")
+	@ResponseBody
+	public String appendReply(
+			//SreplyDTO givenReply
+			String userid, String sid,
+			String rid, String rcontent,
+			String rappr
+			)
+	{
+		SreplyDTO givenReply=null;
+		
+		System.out.println(givenReply);
+		
+		int insertresult=sr_service.insertReply(givenReply);
+		//session.invalidate();	
+		//return null;
+		System.out.println("결과는!! "+insertresult);
+		String result="";
+		return result;
+	}
 	@RequestMapping(value = "/login")
 	@ResponseBody
 	public MemberDTO loginInfosend( String userid, String passwd, HttpSession session
@@ -97,7 +117,7 @@ public class MainPageAJAXController {
 	
 	@RequestMapping(value = "/detail")
 	@ResponseBody
-	public HashMap<String, Object> detailPage( String sid)
+	public HashMap<String, Object> detailPage( String sid, Model model,HttpSession session)
 	{	String tempsid = sid.substring(0, 5);
 		//st_service.selectOne(sid);
 		System.out.println(sid.length());
@@ -125,6 +145,15 @@ public class MainPageAJAXController {
 		hlist.put("storeDTO", sdto);
 		hlist.put("sReDTOList", rdtolist);
 		hlist.put("sad_dto", sad_dto);
+		if(session.getAttribute("loginInfo")!=null)
+		{
+			hlist.put("sessionLogin",session.getAttribute("loginInfo"));
+		}
+		else
+		{
+			hlist.put("sessionLogin","로그인 안된 상태");
+		}
+		
 		
 		String store_result ="";
 		if(sdto==null)

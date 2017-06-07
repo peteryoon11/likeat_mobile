@@ -60,23 +60,26 @@ public class MainPageAJAXController {
 	
 	@RequestMapping(value = "/appendReply")
 	@ResponseBody
-	public String appendReply(
-			//SreplyDTO givenReply
-			String userid, String sid,
+	public SreplyDTO appendReply(
+			SreplyDTO givenReply
+			/*String userid, String sid,
 			String rid, String rcontent,
 			String rappr
+			*/
 			)
 	{
-		SreplyDTO givenReply=null;
-		
+		//SreplyDTO givenReply=null;
+		System.out.println("-------");
 		System.out.println(givenReply);
+		System.out.println("-------");
 		
 		int insertresult=sr_service.insertReply(givenReply);
 		//session.invalidate();	
 		//return null;
 		System.out.println("결과는!! "+insertresult);
-		String result="";
-		return result;
+		//String result="appendReply 결과?";
+		 
+		return givenReply;
 	}
 	@RequestMapping(value = "/login")
 	@ResponseBody

@@ -32,7 +32,61 @@ $(window).scroll(function() {
     }
 });
 $(document).ready(function (){
-
+	$("body").on("dblclick","#detail_page", function(){
+		console.log("dbclick?? #detailpage");
+		// double 클릭으로 좋아요 하려고 했는데.. dbclick 이 아닌가... 
+		// 
+		});
+	
+	
+	$("body").on("keyup","#search-basic", function(key){
+		console.log("click?? #search-basic");
+		console.log("key : ",key);
+		console.log(key.key);
+		// 모바일에서는 enter? 를 못 할텐데... 아 할수있나.. 
+		
+		if(key.key==='Enter')
+			{
+			console.log("Enter 들어옴!!");
+			// enter 들어오면 
+			$.ajax({
+				type : "get",
+				data : {"search_word":$("#search-basic").val()},
+				url : 'search',
+				dataType:'json',
+				success : function(result) {
+					//console.log($('#tttttt').text() ,'<><>');
+					
+					//console.log($('#detail_page').text() ,'<><>');
+					//console.log($('#detail_page').innerHTML ,'<><>');
+				//	console.log($('#detail_page').html() ,'<><>'); // 초기화 ? 아니
+					
+					//	console.log($('#detail_page .ui-content').append("") ,'<><>');
+				//	$('#detail_page .ui-content').html("test");
+			//	console.log($('#detail_page .ui-content').innerHTML);
+			//	$('#detail_page .ui-content').innerHTML="";
+		//	$('#detail_page .ui-content').text("");
+	//	$('#detailpageMain').html(detailPageCreate(result));	
+		//		$('#detail_page .ui-content').append("<table border='2'> <tr><td>table</td></tr></table>")
+					//console.log($('#detail_page').text() ,'<><>');
+				//	console.log(result);
+				//	console.log(something1);
+				//	console.log(something2);
+					
+					
+					console.log("search success")
+				},
+				error : function(error) {
+					console.log('error a click main_main.js');
+					console.log(error);
+				}
+			});
+			}
+		// double 클릭으로 좋아요 하려고 했는데.. dbclick 이 아닌가... 
+		// 
+		});
+	
+//$("body").on('click',"button[id='requestRe']",function (){
 	$("a[href='#detail_page']").click(function ()
 			{// detail page href 있는 객체만 걸러서 실행 시킴 
 		console.log($(this).attr("id"));
@@ -98,14 +152,30 @@ $(document).ready(function (){
 			console.log('--------------');
 					console.log(result);
 					console.log('--------------');	
-					$('#main_header_login_state').html(logout_state_PageCreate(result));
+				//	$('#main_header_login_state').html(logout_state_PageCreate(result));
 			//		window.location.reload(true); // 강제로 화면 재전환
 				//	history.go(0);
-				console.log("success main_logout.js");
+					// 
+					//$('#detailpageMain').html(detailPageCreate(result));
+					// appendReply
+					
+					 $('#appendReply').html(appendReply(result));
+					
+					//$("#rcontent").val("");
+					// 보류 170607 
+					// 최초 의도는 추가 하면 바로 아래에 댓글 추가 되고 글자도 늘어나게 하려고 했는데
+					// 
+					console.log($("#rcontent").val(),"test dddd");
+				//	console.log($("body > #rcontent").val());// 작동 안함 
+				//	$("#rcontent").empty();
+					$("#rcontent").val("");
+					//$("body").on("button[id='requestRe']");
+					//$("body").on('click',"button[id='requestRe']",
+				console.log("success appendReply.js",$("#rcontent").val());
 				
 			},
 			error : function(error) {
-				console.log('error a click main_logout main_member_manag.js');
+				console.log('error a click appendReply.js');
 				console.log(error);
 			}
 		});
@@ -115,7 +185,79 @@ $(document).ready(function (){
 	});	
 	
 });
+function appendReply(result)
+{
+	var replyList=``;
+	// 
+	
+	
+	for (let number in result.sReDTOList)
+		{
+		
+		console.log(result.sReDTOList[number]);
+		
+		replyList+=`		
+	 <div class="ui-grid-b">
+      <div class="ui-block-a">
+				<div>
+					<img src="resources/detail/image/prosam.png" width="60px" height="60px">
+			    </div>
+			    <div>
+			    ${result.sReDTOList[number].userid}
+			    </div>
+	  </div>
+      <div class="ui-block-b">
+				<div>날짜 ${result.sReDTOList[number].rwrda }</div>
+				내용 <br><input value="${result.sReDTOList[number].rcontent}"  readonly="readonly"/>
+				<div class="ui-grid-a">
+					<div class="ui-block-a">
+					<img src="${result.sReDTOList[number].rwrda.img2}" width="100px" height="100px">
+					</div>
+					<div class="ui-block-b">
+					<img src="${result.sReDTOList[number].rwrda.img2}" width="100px" height="100px">
+					</div>
+				</div>
+	  </div>
+      <div class="ui-block-c">
+		<!-- 평점 이미지가 들어가는 부분 --> 
+    
+`;
 
+		
+		if(result.sReDTOList[number].rappr=="5")
+		{
+			replyList+=`<img  src="resources/detail/image/good.png" width="50px"
+				height="100px">
+
+			<br>`;
+		}
+		else if(result.sReDTOList[number].rappr=="3")
+		{
+			replyList+=`<img  src="resources/detail/image/low.png" width="50px"
+				height="100px">
+
+			<br>`;
+		}
+		else if(result.sReDTOList[number].rappr=="1")
+		{
+			replyList+=`<img src="resources/detail/image/avr.png" width="50px"
+				height="100px">
+
+			<br>`;
+		}
+		else
+		{
+			console.log("평점 없는 ");
+		}
+		
+		
+		console.log("나오나?");
+		replyList+=`  </div>
+						</div>`;
+	}
+	return replyList;
+	
+}
 function detailPageCreate(result)
 {	
 	
@@ -241,6 +383,7 @@ function detailPageCreate(result)
 		 `	
 				<div>
 					<div>
+					<input id="Ruserid" type="hidden" value="${result.sessionLogin.userid}"> 
 						<input id="sid" type="hidden" value="${result.storeDTO.sid}"> 
 						<input
 							id="rid" type="hidden" value="${result.storeDTO.sid}-${result.sad_dto.re_cou+1}">
@@ -250,13 +393,14 @@ function detailPageCreate(result)
 							<option value="5">5</option>
 							<option value="3">3</option>
 							<option value="1">1</option>
-						</select> userid <input id="userid" value="${result.sessionLogin.username}" readonly>
+						</select> userid <input id="username" value="${result.sessionLogin.username}" readonly>
 					</div>
 				</div>
 				<button id="requestRe">보내기</button>`;
 	
 	
-	var replyList=``;
+	var replyList=`<div id="appendReply"> </div>`;
+	// 
 	
 	
 	for (let number in result.sReDTOList)

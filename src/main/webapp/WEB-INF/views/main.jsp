@@ -65,6 +65,12 @@
 
 		<div data-role="main" class="ui-content">
 		#search_page
+		<input type="search" name="search" id="search-basic" value="" />
+		
+			<div id = "searchResult">
+			
+			</div>
+			
 		</div>
 		
 		<div data-role="footer" class="ui-content" data-position="fixed">

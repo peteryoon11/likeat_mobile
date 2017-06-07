@@ -28,7 +28,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- main_main 페이지에서 클릭시에 detail 페이지 그려주는 js 파일  -->
-<script src="resources/js/main_main.js"></script>
+<script src="resources/js/main_main.js?ver=1"></script>
+<!-- ?ver=1 은 js 파일의 즉각적인 반영을 위한 부분 의미는 없음  -->
 
 <!-- custom slide js css  -->
 <script src="resources/js/jqueryslide.js"></script>

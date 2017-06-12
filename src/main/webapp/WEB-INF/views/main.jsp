@@ -68,7 +68,7 @@
 		<input type="search" name="search" id="search-basic" value="" />
 		
 			<div id = "searchResult">
-			
+			fff
 			</div>
 			
 		</div>

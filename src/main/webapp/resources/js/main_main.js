@@ -53,28 +53,15 @@ $(document).ready(function (){
 				type : "get",
 				data : {"search_word":$("#search-basic").val()},
 				url : 'search',
-				dataType:'json',
+				dataType:'text',
 				success : function(result) {
-					//console.log($('#tttttt').text() ,'<><>');
+				
+					console.log(result, $("#search-basic").html());
+				//	$('#searchResult').html(detailPageCreate(result));
+					console.log($('#searchResult').html());
 					
-					//console.log($('#detail_page').text() ,'<><>');
-					//console.log($('#detail_page').innerHTML ,'<><>');
-				//	console.log($('#detail_page').html() ,'<><>'); // 초기화 ? 아니
-					
-					//	console.log($('#detail_page .ui-content').append("") ,'<><>');
-				//	$('#detail_page .ui-content').html("test");
-			//	console.log($('#detail_page .ui-content').innerHTML);
-			//	$('#detail_page .ui-content').innerHTML="";
-		//	$('#detail_page .ui-content').text("");
-	//	$('#detailpageMain').html(detailPageCreate(result));	
-		//		$('#detail_page .ui-content').append("<table border='2'> <tr><td>table</td></tr></table>")
-					//console.log($('#detail_page').text() ,'<><>');
-				//	console.log(result);
-				//	console.log(something1);
-				//	console.log(something2);
-					
-					
-					console.log("search success")
+					$('#searchResult').html("test<br><br>testttt");
+					console.log("search success");
 				},
 				error : function(error) {
 					console.log('error a click main_main.js');

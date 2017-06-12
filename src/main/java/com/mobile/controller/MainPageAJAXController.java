@@ -81,6 +81,25 @@ public class MainPageAJAXController {
 		 
 		return givenReply;
 	}
+	
+	@RequestMapping(value = "/search")
+	@ResponseBody
+	public String search(
+			String search_word
+			/*String userid, String sid,
+			String rid, String rcontent,
+			String rappr
+			*/
+			)
+	{
+		//SreplyDTO givenReply=null;
+	System.out.println(search_word);
+		 
+		return search_word;
+	}
+	
+	
+	
 	@RequestMapping(value = "/login")
 	@ResponseBody
 	public MemberDTO loginInfosend( String userid, String passwd, HttpSession session
